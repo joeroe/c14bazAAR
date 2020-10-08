@@ -2,9 +2,9 @@
 % Please edit documentation in R/get_14cpalaeolithic.R, R/get_14sea.R,
 %   R/get_adrac.R, R/get_austarch.R, R/get_c14data.R, R/get_calpal.R,
 %   R/get_context.R, R/get_emedyd.R, R/get_eubar.R, R/get_euroevol.R,
-%   R/get_irdd.R, R/get_jomon.R, R/get_katsianis.R, R/get_kiteeastafrica.R,
-%   R/get_medafricarbon.R, R/get_mesorad.R, R/get_pacea.R, R/get_palmisano.R,
-%   R/get_radon.R, R/get_radonb.R
+%   R/get_intchron.R, R/get_irdd.R, R/get_jomon.R, R/get_katsianis.R,
+%   R/get_kiteeastafrica.R, R/get_medafricarbon.R, R/get_mesorad.R,
+%   R/get_pacea.R, R/get_palmisano.R, R/get_radon.R, R/get_radonb.R
 \name{get_14cpalaeolithic}
 \alias{get_14cpalaeolithic}
 \alias{get_14sea}
@@ -16,6 +16,7 @@
 \alias{get_emedyd}
 \alias{get_eubar}
 \alias{get_euroevol}
+\alias{get_intchron}
 \alias{get_irdd}
 \alias{get_jomon}
 \alias{get_katsianis}
@@ -47,6 +48,8 @@ get_emedyd(db_url = get_db_url("emedyd"))
 get_eubar(db_url = get_db_url("eubar"))
 
 get_euroevol(db_url = get_db_url("euroevol"))
+
+get_intchron(db_url = get_db_url("intchron"))
 
 get_irdd(db_url = get_db_url("irdd"))
 
