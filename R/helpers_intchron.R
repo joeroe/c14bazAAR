@@ -23,6 +23,7 @@ read_intchron <- function(url, format = c("csv")) {
   else if (url_ext != format) {
     url <- sub(paste0(".", url_ext), paste0(".", format), url)
   }
+  url <- URLencode(url)
 
   # Retrieve data from IntChron
   check_connection_to_url(url)
@@ -34,7 +35,6 @@ read_intchron <- function(url, format = c("csv")) {
   else {
     stop(format, " format not supported.")
   }
-
 }
 
 #' Read a CSV file from IntChron
