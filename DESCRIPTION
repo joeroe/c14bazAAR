@@ -69,7 +69,8 @@ Imports:
     stats (>= 3.4.0),
     tibble (>= 1.3.3),
     tidyr (>= 0.6.3),
-    tools
+    tools,
+    purrr
 Suggests:
     Bchron,
     countrycode,

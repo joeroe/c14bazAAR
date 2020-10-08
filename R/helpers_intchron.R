@@ -25,6 +25,8 @@ read_intchron <- function(url, format = c("csv")) {
   }
   url <- URLencode(url)
 
+  message("DEBUG: Reading ", url, " ...")
+
   # Retrieve data from IntChron
   check_connection_to_url(url)
   lines <- readLines(url, warn = FALSE)
@@ -76,4 +78,34 @@ read_intchron_csv <- function(lines) {
   data <- data[!grepl("^X(\\.[0-9]+)?$", names(data))]
 
   return(data)
+}
+
+#' Recursively retrieve IntChron records
+#'
+#' Retrieves the entire IntChron database from a given entry point page. This
+#' function works recursively; it retrieves the data for the entry page, and if
+#' this contains a 'file' column with links to another set of pages, calls
+#' itself on each of these.
+#'
+#' @param url  Page to start crawling
+#' @param ignore  Branches to ignore
+#'
+#' @return
+#' A data frame.
+#'
+#' @noRd
+crawl_intchron <- function(url, ignore = NA) {
+  data <- read_intchron(url)
+  if ("file" %in% names(data)) {
+    data <- data[!basename(tools::file_path_sans_ext(data$file)) %in% ignore,]
+    return(
+      purrr::pmap_dfr(data,
+                      function(file, ..., ignore = NA) {
+                        cbind(..., crawl_intchron(file, ignore))
+                      }, ignore = ignore)
+    )
+  }
+  else {
+    return(data)
+  }
 }
