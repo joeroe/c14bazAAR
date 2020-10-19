@@ -16,6 +16,7 @@
 - added getter function for MedAfriCarbon database: `get_medafricarbon` (#95)
 - added getter function for Jōmon population dynamics database: `get_jomon` (#95)
 - added getter function for emedyd database: `get_emedyd` (#102)
+- added getter function for OxA/ORAU database (via IntChron): `get_oxa` (#115)
 
 ## database updates
 - updated the CalPal database from version 2017_04_27 to 2020_08_20 (#108)
